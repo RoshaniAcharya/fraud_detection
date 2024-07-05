@@ -56,7 +56,7 @@ Usage Training the Model
 
 To train the model, run the scripts in the train/ directory. Ensure that the data is available in the data/ directory.
     
-    #TODO ADD Training script
+    python script_name.py --features_file /path/to/final_features.csv --output_folder /path/to/output_folder
 
 
 Inference
