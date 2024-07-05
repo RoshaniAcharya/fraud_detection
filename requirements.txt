@@ -1,0 +1,7 @@
+Flask >=2.1.2
+numpy >=1.24.3
+pandas >=1.5.2
+joblib >=1.4.2
+scikit-learn >=1.2.2
+geopy >=2.4.1
+imbalanced-learn
