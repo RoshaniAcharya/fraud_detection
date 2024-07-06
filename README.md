@@ -1,5 +1,5 @@
 Fraud Detection Project
-
+==========================
 This project aims to develop a machine learning model to classify transactions as either fraudulent or non-fraudulent.
 Given historical transaction data, including features that are relevant for detecting fraud. 
 The dataset has a mix of categorical and numerical variables.
@@ -13,7 +13,7 @@ This project is divided into three parts.
 Model Development:
 ==========================
 1. Develop a machine learning models to predict whether a transaction is fraudulent.
-2. Evaluate the models using appropriate metrics (e.g., accuracy, precision, recall, F1 score, ROC-AUC).
+2. Evaluate the models using appropriate metrics
  
 Model Deployment:
 ==========================
@@ -56,7 +56,7 @@ Usage Training the Model
 
 To train the model, run the scripts in the train/ directory. Ensure that the data is available in the data/ directory.
     
-    python script_name.py --features_file /path/to/final_features.csv --output_folder /path/to/output_folder
+    python trainer.py --features_file /path/to/final_features.csv --output_folder /path/to/output_folder
 
 
 Inference

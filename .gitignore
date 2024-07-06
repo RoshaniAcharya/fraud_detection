@@ -165,3 +165,5 @@ data/
 model/
 .idea
 experiments
+output/
+.DS_Store

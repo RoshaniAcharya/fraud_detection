@@ -9,7 +9,7 @@ from feature_extractor import feature_extractor
 import pandas as pd
 
 model_loc = 'model/'
-model_name = 'gridsearch_exp_dt_model.joblib'
+model_name = 'decisiontree_default_setup.joblib'
 
 logging.basicConfig(level=logging.NOTSET)
 inference_logger = logging.getLogger("Inference")
@@ -39,26 +39,33 @@ app = Flask(__name__)
 class ModelInferenceService:
     """Service class for loading and predicting using the model."""
 
-    model = None  # Placeholder for the loaded model
+    def __init__(self, model_loc=model_loc, model_name=model_name):
+        self.model_loc = model_loc
+        self.model_name = model_name
+        self.model = None
+        self.load_model()
 
-    @classmethod
-    def load_model(cls):
+    def load_model(self):
         """Load the model from the specified location."""
-        if cls.model is None:
-            model_path = os.path.join(model_loc, model_name)
+        if self.model is None:
+            model_path = os.path.join(self.model_loc, self.model_name)
             with open(model_path, 'rb') as inp:
-                cls.model = joblib.load(inp)
-        return cls.model
+                self.model = joblib.load(inp)
+        return self.model
 
-    @classmethod
-    def predict(cls, features):
+    def predict(self, features):
         """Predict using the loaded model.
 
         :param features: Feature data for prediction.
-        :return: Predicted label.
+        :return: Predicted label and probability
         """
-        model = cls.load_model()
-        return model.predict(features), model.predict_proba(features)
+        if self.model is None:
+            raise RuntimeError("Model has not been loaded. Call load_model() first.")
+
+        return self.model.predict(features), self.model.predict_proba(features)
+
+
+model = ModelInferenceService()
 
 
 @app.route('/inference', methods=['GET'])
@@ -85,13 +92,13 @@ def single_inference():
         features_for_prediction = feature_extractor(input_data)
         features_df = pd.DataFrame([features_for_prediction])
         inference_logger.debug('Running inference for user_id: {}'.format(user_id))
-        response, confidence = ModelInferenceService.predict(features_df)
+        response, confidence = model.predict(features_df)
 
         return jsonify({'message': 'Inference success', 'user_id': user_id,'label': str(response[0]),
             'confidence': confidence[0].tolist()[0]})
 
     except Exception as e:
-        print("e",e)
+        print("e", e)
         inference_logger.error('Error during inference: {}'.format(e))
         return jsonify({'message': 'Inference failed: ' + str(e), 'user_id': user_id}), 500
 

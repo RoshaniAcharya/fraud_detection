@@ -1,7 +1,7 @@
 import requests
 import json
 
-# Define the input data
+# Define the input data_old
 input_data = {
     'user_id': '123456',
     'input_data': {

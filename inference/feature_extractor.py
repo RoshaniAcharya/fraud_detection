@@ -65,9 +65,9 @@ def get_time_features(trans_date_time: str):
 
 def feature_extractor(input_data: dict) -> dict:
     """
-    Extract features from raw input data.
+    Extract features from raw input data_old.
 
-    :param input_data: Dictionary containing raw input data.
+    :param input_data: Dictionary containing raw input data_old.
     :return: Dictionary of extracted features.
     """
     feature_dict = {

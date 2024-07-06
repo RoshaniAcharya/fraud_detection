@@ -1,0 +1,6 @@
+{
+  "model_config": {
+    "model_loc": "model/",
+    "model_name": "decisiontree_default_setup.joblib"
+  }
+}

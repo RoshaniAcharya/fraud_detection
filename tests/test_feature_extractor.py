@@ -15,7 +15,7 @@ from inference.feature_extractor import calculate_age, get_distance, categorize_
 class TestFeatureExtractor(unittest.TestCase):
 
     def setUp(self):
-        # Sample input data for testing
+        # Sample input data_old for testing
         self.input_data = {
             'Unnamed: 0': 0,
             'trans_date_trans_time': '2019-01-01 00:00:18',

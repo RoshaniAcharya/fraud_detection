@@ -1,8 +1,7 @@
 import argparse
 import os
 import pandas as pd
-from sklearn.metrics import accuracy_score, confusion_matrix, classification_report, f1_score, roc_auc_score, \
-    precision_score, make_scorer
+from sklearn.metrics import accuracy_score, f1_score, make_scorer
 from sklearn.model_selection import GridSearchCV, train_test_split
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
@@ -114,11 +113,11 @@ class FraudDetectionModel:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Train a Decision Tree classifier on fraud detection data.")
-    parser.add_argument("--features_file", type=str, required=True, help="Path to the CSV file containing features.")
-    parser.add_argument("--output_folder", type=str, required=True, help="Path to the output folder.")
+    parser = argparse.ArgumentParser(description="Train a Decision Tree classifier on fraud detection data_old.")
+    parser.add_argument("--features_file", type=str, required=True, help="Path to the CSV file containing features.",default='data/final_features.csv')
+    parser.add_argument("--output_folder", type=str, required=True, help="Path to the output folder.",default='/output')
 
     args = parser.parse_args()
-
+    print(args.features_file)
     fraud_detection_model = FraudDetectionModel(args.features_file, args.output_folder)
     fraud_detection_model.run()

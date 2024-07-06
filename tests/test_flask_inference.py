@@ -13,8 +13,8 @@ class TestInferenceAPI(unittest.TestCase):
         endpoint = '/single_inference'
         url = self.base_url + endpoint
 
-        # Example input data for testing
-        # Example input data for testing
+        # Example input data_old for testing
+        # Example input data_old for testing
         input_data = {
             'user_id': '123456',
             'input_data': {

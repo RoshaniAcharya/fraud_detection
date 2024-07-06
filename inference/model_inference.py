@@ -4,7 +4,7 @@ import pandas as pd
 from inference.feature_extractor import feature_extractor
 
 model_loc = 'model/'
-model_name = 'gridsearch_exp_dt_model.joblib'
+model_name = 'decisiontree_default_setup.joblib'
 
 
 class ModelInferenceService:
@@ -25,7 +25,7 @@ class ModelInferenceService:
     def predict(cls, features):
         """Predict using the loaded model.
 
-        :param features: Feature data for prediction.
+        :param features: Feature data_old for prediction.
         :return: Predicted label.
         """
         model = cls.load_model()
@@ -33,7 +33,7 @@ class ModelInferenceService:
 
 
 if __name__ == '__main__':
-    # Define the input data
+    # Define the input data_old
     input_data = {
         'Unnamed: 0': 0,
         'trans_date_trans_time': '2019-01-01 00:00:18',
