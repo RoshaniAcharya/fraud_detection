@@ -34,6 +34,7 @@ The project is organized into the following directories and files:
     ├── train/                         # Directory for training scripts
     ├── Dockerfile                     # Dockerfile for containerizing the application
     ├── requirements.txt               # List of required Python packages
+    ├── config/                        # Model config file
 
 Setup
 
