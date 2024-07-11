@@ -83,7 +83,7 @@ To run unit tests, use the test.py script:
 
 Notebooks
 
-    comparison of all models-Copy1.ipynb: Compares different machine learning models for fraud detection.
+    comparison of all models.ipynb: Compares different machine learning models for fraud detection.
     feature_importance.ipynb: Analyzes the importance of various features in the dataset.
     fraud_eda.ipynb: Conducts exploratory data analysis on the dataset.
     models_training_default_param.ipynb: Trains models with default hyper parameters setup
